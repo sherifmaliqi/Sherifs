@@ -1,0 +1,56 @@
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:layout name="Content"/>
+
+<f:section name="Configuration">
+    <flux:form id="footerCopyright" label="Footer Copyright" wizardTab="Footer">
+        <flux:field.input name="copyrightClaim" label="Copyright Claim"/>
+        <flux:form.section name="socialMedia" label="Social Media">
+            <flux:form.object name="socialNetwork" label="Social Network">
+                <flux:field.input name="link" label="Link"/>
+                <flux:field.select name="name" label="Name" items="{
+                           0:{0:'None',1:'null'},
+                           1:{0:'Facebook',1:'icon-facebook'},
+                           2:{0:'Linkedin',1:'icon-linkedin'},
+                           3:{0:'Instagram',1:'icon-instagram'},
+                           4:{0:'Twitter',1:'icon-twitter'}
+                           }"
+                        />
+            </flux:form.object>
+        </flux:form.section>
+    </flux:form>
+</f:section>
+
+<f:section name="Preview">
+    <h1 style="color: #999999;">Footer Copyright</h1>
+    <p><b>Copyright Claim: </b>{copyrightClaim}</p>
+    <p><b>Social Media: </b></p>
+    <f:for each="{socialMedia}" as="socialItem">
+        <p><b>Link: </b>{socialItem.socialNetwork.link}</p>
+    </f:for>
+</f:section>
+
+<f:section name="Main">
+    <div class="col-md-12 text-center">
+        <p>
+            <small class="block">&copy;{copyrightClaim}</small>
+        </p>
+        <p>
+            <ul class="fh5co-social-icons">
+            <f:if condition="{socialMedia}">
+                <f:then>
+                    <f:for each="{socialMedia}" as="socialItem">
+                        <li>
+                            <a href="{socialItem.socialNetwork.link}"><i class="{socialItem.socialNetwork.name}"></i></a>
+                        </li>
+                    </f:for>
+                </f:then>
+                <f:else>
+
+                </f:else>
+            </f:if>
+            </ul>
+        </p>
+    </div>
+</f:section>

@@ -1,0 +1,37 @@
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:layout name="Page"/>
+
+<f:section name="Configuration">
+    <flux:form id="mainPage" label="Main Page">
+        <flux:grid>
+            <flux:grid.row name="bannerRow" label="Banner Row">
+                <flux:grid.column name="bannerColumn" colPos="0" label="Banner Column"/>
+            </flux:grid.row>
+            <flux:grid.row name="servicesRow" label="Services Row">
+                <flux:grid.column name="servicesColumn" colPos="1" label="Services Column"/>
+            </flux:grid.row>
+            <flux:grid.row name="workRow" label="Work Row">
+                <flux:grid.column name="workColumn" colPos="2" label="Work Column"/>
+            </flux:grid.row>
+            <flux:grid.row name="statsRow" label="Stats Row">
+                <flux:grid.column name="statsColumn" colPos="3" label="Stats Column"/>
+            </flux:grid.row>
+            <flux:grid.row name="newsRow" label="News Row">
+                <flux:grid.column name="newsColumn" colPos="4" label="News Column"/>
+            </flux:grid.row>
+        </flux:grid>
+    </flux:form>
+</f:section>
+
+<f:section name="Main">
+    <div class="container-wrap">
+        <v:content.render column="0"/>
+        <v:content.render column="1"/>
+        <v:content.render column="2"/>
+        <v:content.render column="3"/>
+        <v:content.render column="4"/>
+    </div>
+</f:section>
+

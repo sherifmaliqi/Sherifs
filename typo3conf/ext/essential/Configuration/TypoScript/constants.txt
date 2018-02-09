@@ -1,0 +1,5 @@
+plugin.tx_essential.view {
+	templateRootPaths.0 = EXT:essential/Resources/Private/Templates/
+	partialRootPaths.0 = EXT:essential/Resources/Private/Partials/
+	layoutRootPaths.0 = EXT:essential/Resources/Private/Layouts/
+}

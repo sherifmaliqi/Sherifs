@@ -1,0 +1,51 @@
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<body>
+
+<div class="fh5co-loader"></div>
+
+<div id="page">
+    <nav class="fh5co-nav" role="navigation">
+        <div class="container-wrap">
+            <div class="top-menu">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div id="fh5co-logo"><a href="index.html">Neat</a></div>
+                    </div>
+                    <div class="col-xs-10 text-right menu-1">
+                        <ul>
+                            <v:page.menu pageUid="{settings.rootPageUid}" as="page">
+                                <li class="{f:if(condition: '{pageItem.active} == 1',then: 'active')}">
+                                    <v:page.link pageUid="{settings.rootPageUid}"/>
+                                </li>
+                                <f:for each="{page}" as="pageItem">
+                                    <f:if condition="{pageItem.hasSubPages}">
+                                        <f:then>
+                                            <v:page.menu pageUid="{pageItem.uid}" as="subpage">
+                                                <li class="has-dropdown">
+                                                    <v:page.link pageUid="{pageItem.uid}"/>
+                                                    <ul class="dropdown">
+                                                        <f:for each="{subpage}" as="subItem">
+                                                            <li>
+                                                                <v:page.link pageUid="{subItem.uid}"/>
+                                                            </li>
+                                                        </f:for>
+                                                    </ul>
+                                                </li>
+                                            </v:page.menu>
+                                        </f:then>
+                                        <f:else>
+                                            <li class="{f:if(condition: '{pageItem.active} == 1',then: 'active')}">
+                                                <v:page.link pageUid="{pageItem.uid}"/>
+                                            </li>
+                                        </f:else>
+                                    </f:if>
+                                </f:for>
+                            </v:page.menu>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>

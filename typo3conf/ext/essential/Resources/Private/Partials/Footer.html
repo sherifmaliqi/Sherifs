@@ -1,0 +1,54 @@
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<div class="container-wrap">
+    <footer id="fh5co-footer" role="contentinfo">
+        <div class="row">
+            <v:content.render pageUid="{settings.footerPageUid}" column="0"/>
+
+            <!--<v:content.render pageUid="{settings.footerPageUid}" column="1"/>-->
+            <div class="col-md-3 col-md-push-1">
+                <h4>Latest Posts</h4>
+                <ul class="fh5co-footer-links">
+                    <li><a href="#">Amazing Templates</a></li>
+                    <li><a href="#">100+ Free Download Templates</a></li>
+                    <li><a href="#">Neat is now available</a></li>
+                    <li><a href="#">Download 1000+ icons</a></li>
+                    <li><a href="#">Big Deal for this month of March, Join Us here</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-md-push-1">
+                <h4>Links</h4>
+                <ul class="fh5co-footer-links">
+                    <v:page.menu pageUid="{settings.rootPageUid}" as="page">
+                        <li>
+                            <v:page.link pageUid="{settings.rootPageUid}"/>
+                        </li>
+                        <f:for each="{page}" as="pageItem">
+                            <li>
+                                <v:page.link pageUid="{pageItem.uid}"/>
+                            </li>
+                        </f:for>
+                    </v:page.menu>
+                </ul>
+            </div>
+
+            <v:content.render pageUid="{settings.footerPageUid}" column="2"/>
+
+        </div>
+
+        <div class="row copyright">
+            <v:content.render pageUid="{settings.footerPageUid}" column="3"/>
+        </div>
+    </footer>
+</div><!-- END container-wrap -->
+</div>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:layout name="Content"/>
+
+<f:section name="Configuration">
+    <flux:form id="footerAbout" label="Footer About" wizardTab="Footer">
+        <flux:field.input name="title" label="Title"/>
+        <flux:field.text name="description" label="Description"/>
+    </flux:form>
+</f:section>
+
+<f:section name="Preview">
+    <h1 style="color: #999999;">Footer About</h1>
+    <p><b>Title: </b></b>{title}</p>
+    <p><b>Description: </b>{description}</p>
+</f:section>
+
+<f:section name="Main">
+    <div class="col-md-3 fh5co-widget">
+        <h4>{title}</h4>
+        <p>{description}</p>
+    </div>
+</f:section>
