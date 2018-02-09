@@ -1,0 +1,4 @@
+#Here goes files for git to ignore
+
+.idea/
+typo3temp/
